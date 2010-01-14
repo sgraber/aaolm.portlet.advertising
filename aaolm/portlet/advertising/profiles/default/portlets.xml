@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="aaolm.portlet.advertising.AdvertisingPortlet"
+   title="Advertising Portlet"
+   description="Advertising portlet for Advanced Aquarist's Online Magazine"
+   />
+
+</portlets>
