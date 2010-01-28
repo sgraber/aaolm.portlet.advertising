@@ -75,12 +75,12 @@ class Renderer(base.Renderer):
     Title = 'Support Our Sponsors'
     
     def randomNumber(self):
-    	'Returns a random number to be used to randomly pick an ad to show.'
+        'Returns a random number to be used to randomly pick an ad to show.'
         return random.randint(0,2000)
     
     def randomAd(self):
-    	'Returns a random number to be used to select between a feature & premium ad.'
-    	return random.randint(4,5)
+        'Returns a random number to be used to select between a feature & premium ad.'
+        return random.randint(4,5) 
 
     render = ViewPageTemplateFile('advertisingportlet.pt')
 
