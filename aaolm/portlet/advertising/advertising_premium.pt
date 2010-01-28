@@ -1,34 +1,16 @@
 <div metal:define-macro="portlet"
-	 i18n:domain="aaolm.portlet.advertising">
-
-<dl class="portlet portletAdvertisingPortlet ad-premium">
-
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-        	<tal:title tal:content="view/Title />"
-        <span class="portletTopRight"></span>
-    </dt>
-
-    <dd class="portletItem odd"
-        tal:define="randomAd python: random.randint(0,2000)">
+	 i18n:domain="aaolm.portlet.advertising"
+	 class="portlet portletAdvertisingPortlet ad-premium">
         
-        <a href="#" 
-           tal:attributes="href python:'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(randomAd)">
-            <img src="#" 
-                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(randomAd)"
-                 border="0"
-                 width="250"
-                 height="500"
-                 alt="Click to Visit" />
-        </a>
-                       
-    </dd>
-
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
-    </dd>
-
-</dl>
+    <a href="#" 
+       tal:define="randomAd python: random.randint(0,2000)"
+       tal:attributes="href python:'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(randomAd)">
+        <img src="#" 
+             tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(randomAd)"
+             border="0"
+             width="250"
+             height="500"
+             alt="Click to Visit" />
+    </a>
 
 </div>
