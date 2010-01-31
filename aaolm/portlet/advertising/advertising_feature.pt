@@ -1,6 +1,4 @@
-<div metal:define-macro="portlet"
-     i18n:domain="aaolm.portlet.advertising"
-     class="portlet portletAdvertisingPortlet ad-feature">
+<div class="portletAdvertisingPortlet ad-feature">
 
     <a href="#" 
        tal:define="randomAd python: random.randint(0,2000)"
