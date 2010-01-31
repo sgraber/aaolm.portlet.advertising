@@ -1,0 +1,18 @@
+<div metal:define-macro="portlet"
+     class="portletAdvertisingPortlet ad-banner"
+     i18n:domain="aaolm.portlet.advertising"
+	 tal:define="randomAd python: random.randint(0,2000)">
+
+	<a href="#" 
+	   tal:attributes="href python:'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=3&layout=multi&id=' + str(randomAd)">
+	   
+		<img src="" class="image-inline"
+			 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=3&layout=multi&id=' + str(randomAd)"
+			 alt="Click to Visit" />
+	</a>
+
+</div>
+
+
+
+
