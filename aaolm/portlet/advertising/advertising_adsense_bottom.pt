@@ -1,6 +1,4 @@
-<div metal:define-macro="portlet"
-	 i18n:domain="aaolm.portlet.advertising"
-	 class="portletAdvertisingPortlet ad-adsense-bottom">
+<div class="portletAdvertisingPortlet ad-adsense-bottom">
         
     <script type="text/javascript"><!--
         google_ad_client = "pub-5170032844807535";
