@@ -2,13 +2,14 @@
 <div id="portlet-ads"
      i18n:domain="aaolm.portlet.advertising">
 
+    <!-- START: Ads for ARTICLES -->
+    <!-- We want equal Features and Premiums on each page -->
     <tal:page tal:condition="python: here.portal_type == 'Document'">
         <div tal:define="totalAds python: 1 + ((len(context.getText())) / 1024 / 4)"
                tal:repeat="sponsorAds python:range(0,totalAds)">
     
-    		<div class="portletAdvertisingPortlet ad-feature"
+    		<div class="portletAdvertisingPortlet ad-premium"
     		     tal:define="ad view/randomNumber">
-    			
     		        <a href="#" 
     		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
     		            <img src="#" 
@@ -18,14 +19,10 @@
     		                 height="500"
     		                 alt="Click to Visit" />
     		        </a>
-    	
     		</div>
-    
             <p class="ad-spacer">&nbsp;</p>
-    
     		<div class="portletAdvertisingPortlet ad-feature"
     		     tal:define="ad view/randomNumber">
-    		        
     		        <a href="#" 
     		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=5&layout=multi&id=' + str(ad)">
     		            <img src="#" 
@@ -35,122 +32,99 @@
     		                 height="200"
     		                 alt="Click to Visit" />
     		        </a>
-    	
     		</div>
-    
             <p class="ad-spacer"
                tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
+               
         </div>
-   </tal:page>
+    </tal:page> 
+    <!-- END: Ads for ARTICLES -->
 
-
-   <tal:topic tal:condition="python: context.portal_type == 'Topic'"
-              tal:define="totalAds python: 3"
+    <!-- START: Ads for TOPICS -->
+    <!-- This will usually be used for 'Table of Contents' but can be used for other things too -->
+    <!-- We want 3 random ads - either Feature or Premiums -->
+    <tal:topic tal:condition="python: context.portal_type == 'Topic'"
+              tal:define="totalAds python: 3;
+                          size view/randomAd;"
               tal:repeat="sponsorAds python:range(0,totalAds)">
 
-		<div class="portletAdvertisingPortlet ad-premium"
+		<div class="portletAdvertisingPortlet ad"
 		     tal:define="ad view/randomNumber;
-		                    size view/randomAd;">
+		                 size view/randomAd;">
+		        
+		        <a href="#" 
+		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)">
+		            <img src="#" 
+		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)"
+		                 border="0"		                 
+		                 width="250"
+		                 alt="Click to Visit" />
+		        </a>
+		                       
+		</div>
+
+        <p class="ad-spacer"
+           tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
+    </tal:topic>
+    <!-- END: Ads for TOPICS -->
+
+    <!-- START: Ads for FOLDERS, LINKS, EVENTS, NEWS ITEM -->
+    <tal:folder tal:condition="python: context.portal_type in ['Link', 'Event', 'News Item', 'Folder',]"
+                tal:define="totalAds python: 1"
+                tal:repeat="sponsorAds python:range(0,totalAds)">
+
+		<div class="portletAdvertisingPortlet ad"
+		     tal:define="ad view/randomNumber;
+		                 size view/randomAd;">
 		        
 		        <a href="#" 
 		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)">
 		            <img src="#" 
 		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)"
 		                 border="0"
-		                 alt="Click to Visit" />
-		        </a>
-		                       
-	
-		</div>
-
-        <p class="ad-spacer"
-           tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
-   </tal:topic>
-
-
-   <tal:folder tal:condition="python: context.portal_type == 'Folder'"
-               tal:define="totalAds python: 1"
-               tal:repeat="sponsorAds python:range(0,totalAds)">
-
-		<div class="portletAdvertisingPortlet ad-premium"
-		     tal:define="ad view/randomNumber">
-		        
-		        <a href="#" 
-		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
-		            <img src="#" 
-		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(ad)"
-		                 border="0"
 		                 width="250"
-		                 height="500"
 		                 alt="Click to Visit" />
 		        </a>
 		                       	
 		</div>
-
+		
         <p class="ad-spacer"
            tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
-   </tal:folder>
+    </tal:folder>
+    <!-- END: Ads for FOLDERS, LINKS, EVENTS, NEWS ITEM -->
 
-
-   <tal:link tal:condition="python: context.portal_type in ['Link', 'Event', 'News Item',]"
-             tal:define="totalAds python: 1;
-                         size view/randomAd"
-             tal:repeat="sponsorAds python:range(0,totalAds)">
-
-		<div class="portletAdvertisingPortlet ad"
-		     tal:define="ad view/randomNumber">
-		        
-		        <a href="#" 
-		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)">
-		            <img src="#" 
-		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=' + str(size) + '&layout=multi&id=' + str(ad)"
-		                 border="0"
-		                 width="250"
-		                 height="200"
-		                 alt="Click to Visit" />
-		        </a>
-		                       
-		</div>
-
-        <p class="ad-spacer"
-           tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
-   </tal:link>
-
-
-   <tal:none tal:condition="python: context.portal_type not in ['Document', 'Topic', 'Folder', 'Link', 'Event']">
+    <!-- START: UNKNOWN -->
+    <!-- Aren't viewing *any* of the above, then just show a Premium and Feature and that's it -->
+    <tal:none tal:condition="python: context.portal_type not in ['Document', 'Topic', 'Folder', 'Link', 'Event', 'News Item',]">
    
-		<div class="portletAdvertisingPortlet ad-premium"
-		     tal:define="ad view/randomNumber">
-		        
-		        <a href="#" 
-		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
-		            <img src="#" 
-		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(ad)"
-		                 border="0"
-		                 width="250"
-		                 height="500"
-		                 alt="Click to Visit" />
-		        </a>
-	
-		</div>
-
-        <p class="ad-spacer">&nbsp;</p>
-
-		<div class="portletAdvertisingPortlet ad-feature"
-		     tal:define="ad view/randomNumber">
-
-		        <a href="#" 
-		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=5&layout=multi&id=' + str(ad)">
-		            <img src="#" 
-		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=5&layout=multi&id=' + str(ad)"
-		                 border="0"
-		                 width="250"
-		                 height="200"
-		                 alt="Click to Visit" />
-		        </a>
-	
-		</div>
+    		<div class="portletAdvertisingPortlet ad-premium"
+    		     tal:define="ad view/randomNumber">
+    		        <a href="#" 
+    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
+    		            <img src="#" 
+    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(ad)"
+    		                 border="0"
+    		                 width="250"
+    		                 height="500"
+    		                 alt="Click to Visit" />
+    		        </a>
+    		</div>
+            <p class="ad-spacer">&nbsp;</p>
+    		<div class="portletAdvertisingPortlet ad-feature"
+    		     tal:define="ad view/randomNumber">
+    		        <a href="#" 
+    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=5&layout=multi&id=' + str(ad)">
+    		            <img src="#" 
+    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=5&layout=multi&id=' + str(ad)"
+    		                 border="0"
+    		                 width="250"
+    		                 height="200"
+    		                 alt="Click to Visit" />
+    		        </a>
+    		</div>
+            
    </tal:none>
+   <!-- END: UNKNOWN -->
 
 </div>
 
