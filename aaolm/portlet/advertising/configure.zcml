@@ -8,28 +8,30 @@
     <five:registerPackage package="." initialize=".initialize" />
 
     <genericsetup:registerProfile
-       name="default"
-       title="Advertising Portlet"
-       directory="profiles/default"
-       description="Advertising portlet for Advanced Aquarist's Online Magazine"
-       provides="Products.GenericSetup.interfaces.EXTENSION"
-       />
+        name="default"
+        title="Advertising Portlet"
+        directory="profiles/default"
+        description="Advertising portlet for Advanced Aquarist's Online Magazine"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
-     <!-- Register the portlet -->
+    <!-- Register the portlet -->
 
-     <!-- If the portlet has no configurable parameters, you can remove
+    <!-- If the portlet has no configurable parameters, you can remove
           the EditForm declaration in advertisingportlet.py and delete
           the 'editview' attribute from this statement.
-       -->
+        -->
 
-     <plone:portlet
-         name="aaolm.portlet.advertising.AdvertisingPortlet"
-         interface=".advertisingportlet.IAdvertisingPortlet"
-         assignment=".advertisingportlet.Assignment"
-         view_permission="zope2.View"
-         edit_permission="cmf.ManagePortal"
-         renderer=".advertisingportlet.Renderer"
-         addview=".advertisingportlet.AddForm"
-         />
+    <plone:portlet
+        name="aaolm.portlet.advertising.AdvertisingPortlet"
+        interface=".advertisingportlet.IAdvertisingPortlet"
+        assignment=".advertisingportlet.Assignment"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".advertisingportlet.Renderer"
+        addview=".advertisingportlet.AddForm"
+        />
+
+    <include package=".browser" />
 
 </configure>
