@@ -1,0 +1,41 @@
+﻿<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="custom_i18n_domain">
+
+    <!-- just below the description and only when viewing a content item-->
+    <browser:viewlet
+        name="advertising.paypal"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        for="Products.CMFCore.interfaces.IContentish"
+        class=".viewlets.AdvertisingPaypalViewlet"
+        permission="zope2.View"
+        />
+
+    <!-- just below the description -->
+    <browser:viewlet
+        name="advertising.adsensetop"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        for="Products.CMFCore.interfaces.IContentish"
+        class=".viewlets.AdvertisingPaypalViewlet"
+        permission="zope2.View"
+        />
+    
+    <!-- just below the body content -->
+    <browser:viewlet
+        name="advertising.adsensebottom"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        for="Products.CMFCore.interfaces.IContentish"
+        class=".viewlets.AdvertisingPaypalViewlet"
+        permission="zope2.View"
+        />
+
+    <!-- in the portal header to right of logo -->
+    <browser:viewlet
+        name="advertising.banner"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.AdvertisingPaypalViewlet"
+        permission="zope2.View"
+        />
+
+</configure>
