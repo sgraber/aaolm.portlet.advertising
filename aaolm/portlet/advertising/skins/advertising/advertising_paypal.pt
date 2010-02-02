@@ -1,3 +1,4 @@
+<tal:define metal:define-macro="advertising">
 <div class="portletAdvertisingPortlet ad-paypal">
         
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -9,3 +10,4 @@
     </form>
     
 </div>
+</tal:define>

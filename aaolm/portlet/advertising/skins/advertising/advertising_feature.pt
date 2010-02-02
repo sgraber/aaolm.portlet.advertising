@@ -1,3 +1,4 @@
+<tal:define metal:define-macro="advertising">
 <div class="portletAdvertisingPortlet ad-feature">
 
     <a href="#" 
@@ -12,3 +13,4 @@
     </a>
 
 </div>
+</tal:define>

@@ -1,3 +1,4 @@
+<tal:define metal:define-macro="advertising">
 <div class="portletAdvertisingPortlet ad-adsense-bottom">
         
     <script type="text/javascript"><!--
@@ -13,3 +14,4 @@
     </script>
     
 </div>
+</tal:define>
