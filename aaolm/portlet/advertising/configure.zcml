@@ -32,6 +32,4 @@
         addview=".advertisingportlet.AddForm"
         />
 
-    <include package=".browser" />
-
 </configure>
