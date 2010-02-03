@@ -90,20 +90,3 @@ class AddForm(base.NullAddForm):
     """
     def create(self):
         return Assignment()
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can use the next AddForm implementation instead of the previous.
-
-# class AddForm(base.NullAddForm):
-#     """Portlet add form.
-#     """
-#     def create(self):
-#         return Assignment()
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can remove the EditForm class definition and delete the editview
-# attribute from the <plone:portlet /> registration in configure.zcml
-
-
