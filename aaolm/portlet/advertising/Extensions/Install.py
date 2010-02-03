@@ -25,7 +25,7 @@ def uninstall(portal):
     out.append('Ran runAllImportStepsFromProfile.')
 
     # Remove installed portlets from columns
-    id_portlets = ('advertisingportlet',
+    id_portlets = ('advertising-portlet',
                    )
                    
     rightcol = getUtility(IPortletManager, name=u'plone.rightcolumn', context=portal)
