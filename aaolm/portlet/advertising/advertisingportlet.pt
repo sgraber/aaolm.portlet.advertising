@@ -8,31 +8,13 @@
         <div tal:define="totalAds python: 1 + ((len(context.getText())) / 1024 / 4)"
                tal:repeat="sponsorAds python:range(0,totalAds)">
     
-    		<div class="portletAdvertisingPortlet ad-premium"
-    		     tal:define="ad view/randomNumber">
-    		        <a href="#" 
-    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
-    		            <img src="#" 
-    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(ad)"
-    		                 border="0"
-    		                 width="250"
-    		                 height="500"
-    		                 alt="Click to Visit" />
-    		        </a>
-    		</div>
+            <metal:block use-macro="here/advertising_premium/macros/advertising">
+                Premium Ad
+            </metal:block>
             <p class="ad-spacer">&nbsp;</p>
-    		<div class="portletAdvertisingPortlet ad-feature"
-    		     tal:define="ad view/randomNumber">
-    		        <a href="#" 
-    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=5&layout=multi&id=' + str(ad)">
-    		            <img src="#" 
-    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=5&layout=multi&id=' + str(ad)"
-    		                 border="0"
-    		                 width="250"
-    		                 height="200"
-    		                 alt="Click to Visit" />
-    		        </a>
-    		</div>
+            <metal:block use-macro="here/advertising_feature/macros/advertising">
+                Feature Ad
+            </metal:block>
             <p class="ad-spacer"
                tal:condition="python: sponsorAds != (totalAds - 1)">&nbsp;</p>
                
@@ -97,31 +79,13 @@
     <!-- Aren't viewing *any* of the above, then just show a Premium and Feature and that's it -->
     <tal:none tal:condition="python: context.portal_type not in ['Document', 'Topic', 'Folder', 'Link', 'Event', 'News Item',]">
    
-    		<div class="portletAdvertisingPortlet ad-premium"
-    		     tal:define="ad view/randomNumber">
-    		        <a href="#" 
-    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=4&layout=multi&id=' + str(ad)">
-    		            <img src="#" 
-    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=4&layout=multi&id=' + str(ad)"
-    		                 border="0"
-    		                 width="250"
-    		                 height="500"
-    		                 alt="Click to Visit" />
-    		        </a>
-    		</div>
+            <metal:block use-macro="here/advertising_premium/macros/advertising">
+                Premium Ad
+            </metal:block>
             <p class="ad-spacer">&nbsp;</p>
-    		<div class="portletAdvertisingPortlet ad-feature"
-    		     tal:define="ad view/randomNumber">
-    		        <a href="#" 
-    		           tal:attributes="href python: 'http://www.pomacanthuspub.com/cgi-bin/adclick.cgi?gid=5&layout=multi&id=' + str(ad)">
-    		            <img src="#" 
-    		                 tal:attributes="src python:'http://www.pomacanthuspub.com/cgi-bin/adcycle.cgi?gid=5&layout=multi&id=' + str(ad)"
-    		                 border="0"
-    		                 width="250"
-    		                 height="200"
-    		                 alt="Click to Visit" />
-    		        </a>
-    		</div>
+            <metal:block use-macro="here/advertising_feature/macros/advertising">
+                Feature Ad
+            </metal:block>
             
    </tal:none>
    <!-- END: UNKNOWN -->
